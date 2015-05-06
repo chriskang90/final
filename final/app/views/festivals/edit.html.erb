@@ -1,0 +1,69 @@
+<%= form_tag "/festivals/#{@festival.id}", :method => 'patch' do  %>
+
+  <div>
+    <label for="name">Name:</label>
+    <input size="80" name="name" id="name" value="<%= @festival.name %>">
+  </div>
+
+  <div>
+    <label for="price">Price:</label>
+    <input size="80" name="price" id="price" value="<%= @festival.price %>">
+  </div>
+
+  <div>
+    <label for="website">Website:</label>
+    <input size="80" name="website" id="website" value="<%= @festival.website %>">
+  </div>
+
+  <div>
+    <label for="logo_url">Link to Logo:</label>
+    <input size="80" name="logo_url" id="logo_url" value="<%= @festival.logo_url %>" type="url">
+  </div>
+
+  <div>
+    <label for="date_start">Start Date:</label>
+    <input size="80" name="date_start" id="date_start" value="<%= @festival.date_start %>" type="date">
+  </div>
+
+  <div>
+    <label for="date_end">End Date:</label>
+    <input size="80" name="date_end" id="date_end" value="<%= @festival.date_end%>" type="date">
+  </div>
+
+  <div>
+    <textarea cols="80" rows="5" placeholder="Description" name="description"><%=@festival.description%></textarea>
+  </div>
+
+ <div>
+    <label for="location_id">Location: </label>
+    <select name="location_id" value="<%= @festival.location_id %>">
+      <% @locations.each do |location| %>
+      <% if location.id = @festival.location_id %>
+        <option selected value="<%=location.id%>"><%=location.name%>
+      <% else %>
+        <option value="<%= location.id %>">
+          <%= location.name %>
+      <% end %>
+        </option>
+      <% end %>
+    </select>
+  </div>
+
+ <div>
+    <label for="genre_id">Genre: </label>
+    <select name="genre_id" value="<%= @festival.genre_id%>">
+      <% @genres.each do |genre| %>
+      <% if genre.id = @festival.genre_id %>
+        <option selected value="<%=genre.id%>"><%=genre.name%>
+      <% else %>
+        <option value="<%= genre.id %>">
+          <%= genre.name %>
+      <% end %>
+        </option>
+      <% end %>
+    </select>
+  </div>
+
+  <input type="submit" name="commit" value="Update Festival">
+
+<% end %>

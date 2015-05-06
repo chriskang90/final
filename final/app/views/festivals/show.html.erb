@@ -1,0 +1,14 @@
+<h2><%= @festival.name %></h2>
+<%= image_tag @festival.logo_url %>
+
+<p>
+	<div>Price: $<%=@festival.price%></div>
+	<div>Start: <%=@festival.date_start%></div>
+	<div>End: <%=@festival.date_end%></div>
+	<div>Website: <%=@festival.website%></div>
+</p>
+
+<h4>Location: <%=@location.name%> </h4>
+<h4>Genre: <%=@genre.name%> </h4>
+
+<p><%= @festival.description %></p>

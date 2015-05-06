@@ -1,0 +1,61 @@
+<%= form_tag "/festivals" do %>
+
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name, nil, placeholder: 'Example: Music Festival' %>
+  </div>
+
+  <div>
+    <%= label_tag :price %>
+    <%= text_field_tag :price, nil, placeholder: 'Example: 100' %>
+  </div>
+
+  <div>
+    <label for="website">Website:</label>
+    <input size="80" name="website" id="website">
+  </div>
+
+  <div>
+    <label for="logo_url">Link to Logo:</label>
+    <input size="80" name="logo_url" id="logo_url" type="url">
+  </div>
+
+  <div>
+    <label for="date_start">Start Date:</label>
+    <input size="80" name="date_start" id="date_start" type="date">
+  </div>
+
+  <div>
+    <label for="date_end">End Date:</label>
+    <input size="80" name="date_end" id="date_end" type="date">
+  </div>
+
+  <div>
+    <textarea cols="80" rows="5" placeholder="Description" name="description"></textarea>
+  </div>
+
+ <div>
+    <label for="location_id">Location: </label>
+    <select name="location_id">
+      <% @locations.each do |location| %>
+        <option value="<%= location.id %>">
+          <%= location.name %>
+        </option>
+      <% end %>
+    </select>
+  </div>
+
+ <div>
+    <label for="genre_id">Genre: </label>
+    <select name="genre_id">
+      <% @genres.each do |genre| %>
+        <option value="<%= genre.id %>">
+          <%= genre.name %>
+        </option>
+      <% end %>
+    </select>
+  </div>
+
+  <input type="submit" name="commit" value="Add Festival">
+
+<% end %>

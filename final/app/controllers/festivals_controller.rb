@@ -1,0 +1,63 @@
+class FestivalsController < ApplicationController
+
+  def index
+    @festivals = Festival.all.limit(100)
+  end
+
+  def show
+  	@festival = Festival.find_by(id: params["id"])
+  	@location = Location.find_by(id: @festival.location_id)
+  	@genre = Genre.find_by(id: @festival.genre_id)
+
+  	if @festival == nil
+  		redirect_to festivals_url, notice: "Festival not found"
+  	end
+  end
+
+  def new
+  	@locations = Location.all.limit(100)
+  	@genres = Genre.all.limit(100)
+  end
+
+  def create
+    festival = Festival.new
+    festival.name = params[:name]
+    festival.price = params[:price].to_i
+    festival.website = params[:website]
+    festival.date_start = Date.strptime(params[:date_start], "%Y-%m-%d")
+    festival.date_end = Date.strptime(params[:date_end], "%Y-%m-%d")
+    festival.description = params[:description]
+    festival.logo_url = params[:logo_url]
+    festival.location_id = params[:location_id]
+    festival.genre_id = params[:genre_id]
+    festival.save
+    redirect_to festivals_url
+  end
+
+  def edit
+  	@festival = Festival.find_by(id: params["id"])
+  	@locations = Location.all.limit(100)
+  	@genres = Genre.all.limit(100)
+  end
+
+  def update
+  	festival = Festival.find_by(id: params["id"])
+    festival.name = params[:name]
+    festival.price = params[:price]
+    festival.website = params[:website]
+    festival.date_start = params[:date_start]
+    festival.date_end = params[:date_end]
+    festival.description = params[:description]
+    festival.logo_url = params[:logo_url]
+    festival.location_id = params[:location_id]
+    festival.genre_id = params[:genre_id]
+    festival.save
+    redirect_to festivals_url
+  end
+
+  def destroy
+  	Festival.delete(params[:id])
+    redirect_to festivals_url
+  end
+
+end
