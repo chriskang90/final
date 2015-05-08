@@ -45,5 +45,8 @@ group :development, :test do
 gem 'ez'
 gem 'quiet_assets'
 
+# Adding required gem file for windows users
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
 end
 
