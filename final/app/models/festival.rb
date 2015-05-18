@@ -1,7 +1,7 @@
 class Festival < ActiveRecord::Base
 
-  has_many :performers
-  has_many :artists, :through => :performers
+  has_many :performances
+  has_many :artists, :through => :performances
 
   belongs_to :location
   belongs_to :genre

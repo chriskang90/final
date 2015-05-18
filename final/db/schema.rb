@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "name"
     t.integer "age"
     t.string  "birthplace"
-    t.integer "years_active"
     t.string  "website"
   end
 
@@ -47,12 +46,12 @@ ActiveRecord::Schema.define(version: 0) do
     t.text   "description"
   end
 
-  create_table "performers", force: :cascade do |t|
+  create_table "performances", force: :cascade do |t|
     t.integer "festival_id"
     t.integer "artist_id"
   end
 
-  add_index "performers", ["artist_id"], name: "index_performers_on_artist_id"
-  add_index "performers", ["festival_id"], name: "index_performers_on_festival_id"
+  add_index "performances", ["artist_id"], name: "index_performances_on_artist_id"
+  add_index "performances", ["festival_id"], name: "index_performances_on_festival_id"
 
 end

@@ -1,14 +1,9 @@
-<h2><%= @festival.name %></h2>
+<h2><%= @festival.name %> | <%= link_to @location.name, location_url(@location.id) %> | <%= link_to @genre.name, genre_url(@genre.id) %></h2>
 <%= image_tag @festival.logo_url %>
 
-<p>
-	<div>Price: $<%=@festival.price%></div>
-	<div>Start: <%=@festival.date_start%></div>
-	<div>End: <%=@festival.date_end%></div>
-	<div>Website: <%=@festival.website%></div>
-</p>
-
-<h4>Location: <%=@location.name%> </h4>
-<h4>Genre: <%=@genre.name%> </h4>
+<h4>Price: $<%=@festival.price%></h4>
+<h4>Start: <%= @festival.date_start.strftime("%b %d %Y")%> </h4>
+<h4>End: <%= @festival.date_end.strftime("%b %d %Y")%> </h4>
+<h4><a href=<%=@festival.website%>>Website</a></h4>
 
 <p><%= @festival.description %></p>

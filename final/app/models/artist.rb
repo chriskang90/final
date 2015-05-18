@@ -1,7 +1,7 @@
 class Artist < ActiveRecord::Base
 
-  has_many :performers
-  has_many :festivals, :through => :performers
+  has_many :performances
+  has_many :festivals, :through => :performances
 
   validates :name, :presence => true
 
