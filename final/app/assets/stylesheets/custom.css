@@ -2,3 +2,12 @@ h1 {
   border-bottom: solid 3px gray;
   margin-bottom: 24px;
 }
+
+.errors {
+  color: red;
+  font-weight: bold;
+}
+
+.right {
+  float: right;
+}

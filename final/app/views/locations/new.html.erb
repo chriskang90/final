@@ -1,5 +1,5 @@
 <% if not @location.nil? and @location.errors.any? %>
-  <ul>
+  <ul class="errors">
     <% @location.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>

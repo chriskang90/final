@@ -1,3 +1,8 @@
+User
+  name: string
+  email: string
+  password: string
+
 Festival
   name: string
   price: integer

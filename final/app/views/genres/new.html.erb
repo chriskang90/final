@@ -1,5 +1,5 @@
 <% if not @genre.nil? and @genre.errors.any? %>
-  <ul>
+  <ul class="errors">
     <% @genre.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>

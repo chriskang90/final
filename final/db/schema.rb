@@ -54,4 +54,10 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "performances", ["artist_id"], name: "index_performances_on_artist_id"
   add_index "performances", ["festival_id"], name: "index_performances_on_festival_id"
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password"
+  end
+
 end
