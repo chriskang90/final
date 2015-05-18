@@ -1,0 +1,15 @@
+<h2><%= @location.name %></h2>
+<%= image_tag @location.photo_url %>
+
+<p><%=@location.description%></p>
+
+<table class="table table-striped">
+  <tr>
+    <th>Festivals</th>
+  </tr>
+  <% @festivals.each do |festival| %>
+    <tr>
+      <td><%= link_to festival.name, festival_url(festival.id) %></td>
+    </tr>
+  <% end %>
+ 

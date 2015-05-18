@@ -1,0 +1,19 @@
+<%= form_tag "/locations/#{@location.id}", :method => 'patch' do  %>
+
+  <div>
+    <label for="name">Name:</label>
+    <input size="80" name="name" id="name" value="<%= @location.name %>">
+  </div>
+
+  <div>
+    <label for="photo_url">Photo Url:</label>
+    <input size="80" name="photo_url" id="photo_url" value="<%= @location.photo_url %>">
+  </div>
+
+  <div>
+    <textarea cols="80" rows="5" placeholder="Description" name="description"><%=@location.description%></textarea>
+  </div>
+
+  <input type="submit" name="commit" value="Update Location">
+
+<% end %>

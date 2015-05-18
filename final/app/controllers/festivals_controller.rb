@@ -20,18 +20,33 @@ class FestivalsController < ApplicationController
   end
 
   def create
-    festival = Festival.new
-    festival.name = params[:name]
-    festival.price = params[:price].to_i
-    festival.website = params[:website]
-    festival.date_start = Date.strptime(params[:date_start], "%Y-%m-%d")
-    festival.date_end = Date.strptime(params[:date_end], "%Y-%m-%d")
-    festival.description = params[:description]
-    festival.logo_url = params[:logo_url]
-    festival.location_id = params[:location_id]
-    festival.genre_id = params[:genre_id]
-    festival.save
-    redirect_to festivals_url
+    @festival = Festival.new
+    @festival.name = params[:name]
+    @festival.price = params[:price].to_i
+    @festival.website = params[:website]
+    if params[:date_start].blank?
+      @festival.date_start = nil
+    else
+      @festival.date_start = Date.strptime(params[:date_start], "%Y-%m-%d")
+    end
+    if params[:date_end].blank?
+      @festival.date_end = nil
+    else
+      @festival.date_end = Date.strptime(params[:date_end], "%Y-%m-%d")
+    end
+    @festival.description = params[:description]
+    @festival.logo_url = params[:logo_url]
+    @festival.location_id = params[:location_id]
+    @festival.genre_id = params[:genre_id]
+    
+    if @festival.save
+      redirect_to festivals_url
+    else
+      @locations = Location.all.limit(100)
+      @genres = Genre.all.limit(100)
+      render 'new'
+    end
+    
   end
 
   def edit

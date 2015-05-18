@@ -1,20 +1,19 @@
 <p><%= link_to "Add a New Festival", "/festivals/new" %></p>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Name</th>
-    <th>Price</th>
-    <th>Start</th>
-    <th>End</th>
-    <th>Website</th>
+    <th>Location</th>
+    <th>Genre</th>
+    <th></th>
+    <th></th>
   </tr>
   <% @festivals.each do |festival| %>
     <tr>
       <td><%= link_to festival.name, festival_url(festival.id) %></td>
-      <td><%= festival.price %></td>
-      <td><%= festival.date_start %></td>
-      <td><%= festival.date_end %></td>
-      <td><%= link_to "Edit...", "/festivals/#{festival.id}/edit" %></td>
+      <td><%= festival.location.name %></td>
+      <td><%= festival.genre.name %></td>
+      <td><%= link_to "Edit", "/festivals/#{festival.id}/edit" %></td>
       <td><%= link_to "Delete", "/festivals/#{festival.id}", :method => 'delete' %></td>
     </tr>
   <% end %>

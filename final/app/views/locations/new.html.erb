@@ -1,0 +1,28 @@
+<% if not @location.nil? and @location.errors.any? %>
+  <ul>
+    <% @location.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_tag "/locations" do %>
+
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name, nil, placeholder: 'Example: Grant Park' %>
+  </div>
+
+  <div>
+    <%= label_tag :photo_url %>
+    <%= text_field_tag :photo_url %>
+  </div>
+
+  <div>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+  </div>
+
+  <input type="submit" name="commit" value="Add Location">
+
+<% end %>

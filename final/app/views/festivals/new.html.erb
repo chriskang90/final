@@ -1,3 +1,11 @@
+<% if not @festival.nil? and @festival.errors.any? %>
+  <ul>
+    <% @festival.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_tag "/festivals" do %>
 
   <div>

@@ -18,7 +18,6 @@ Artist
   name: string
   age: integer
   birthplace: string
-  years_active: integer
   website: string
 
 Genre

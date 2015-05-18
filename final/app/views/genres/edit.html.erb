@@ -1,0 +1,14 @@
+<%= form_tag "/genres/#{@genre.id}", :method => 'patch' do  %>
+
+  <div>
+    <label for="name">Name:</label>
+    <input size="80" name="name" id="name" value="<%= @genre.name %>">
+  </div>
+
+  <div>
+    <textarea cols="80" rows="5" placeholder="Description" name="description"><%=@genre.description%></textarea>
+  </div>
+
+  <input type="submit" name="commit" value="Update Genre">
+
+<% end %>

@@ -1,0 +1,15 @@
+<p><%= link_to "Add a New Location", "/locations/new" %></p>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  <% @locations.each do |location| %>
+    <tr>
+      <td><%= link_to location.name, location_url(location.id) %></td>
+      <td><%= link_to "Edit", "/locations/#{location.id}/edit" %></td>
+    </tr>
+  <% end %>
+
+</table>

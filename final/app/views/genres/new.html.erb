@@ -1,0 +1,23 @@
+<% if not @genre.nil? and @genre.errors.any? %>
+  <ul>
+    <% @genre.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_tag "/genres" do %>
+
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name, nil, placeholder: 'Example: Music' %>
+  </div>
+
+  <div>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+  </div>
+
+  <input type="submit" name="commit" value="Add Genre">
+
+<% end %>

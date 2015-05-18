@@ -1,0 +1,13 @@
+<h2><%= @genre.name %></h2>
+
+<p><%=@genre.description%></p>
+
+<table class="table table-striped">
+  <tr>
+    <th>Festivals</th>
+  </tr>
+  <% @festivals.each do |festival| %>
+    <tr>
+      <td><%= link_to festival.name, festival_url(festival.id) %></td>
+    </tr>
+  <% end %>
