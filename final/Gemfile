@@ -44,6 +44,7 @@ group :development, :test do
 
 gem 'ez'
 gem 'quiet_assets'
+gem 'bcrypt'
 
 # Adding required gem file for windows users
 gem 'tzinfo-data', platforms: [:mingw, :mswin]

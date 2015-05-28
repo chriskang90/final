@@ -1,5 +1,13 @@
 class FestivalsController < ApplicationController
 
+  before_action :require_user, :except => [:index, :show]
+
+  def require_user
+    if session[:user_id].blank?
+      redirect_to '/login', notice: "Please login."
+    end
+  end
+
   def index
     @festivals = Festival.all.limit(100)
   end
@@ -11,7 +19,14 @@ class FestivalsController < ApplicationController
 
   	if @festival == nil
   		redirect_to festivals_url, notice: "Festival not found"
-  	end
+    else
+      # Make this empty string if it does not exist
+      cookies["festival_ids"] ||= ""
+
+      # Adds id with a space
+      cookies["festival_ids"] += "#{@festival.id} "
+    end
+
   end
 
   def new

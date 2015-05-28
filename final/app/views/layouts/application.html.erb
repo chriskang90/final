@@ -16,9 +16,9 @@
       <small><%= link_to "Locations", '/locations' %></small>
       <small><%= link_to "Genres", '/genres' %></small>
 
-      <% if cookies["user_id"].present? %>
+      <% if session["user_id"].present? %>
         <small><%= link_to "Sign Out", '/logout' %></small>
-        <small class="right"><%= User.find_by(id: cookies["user_id"]).name %></small>
+        <small class="right"><%= User.find_by(id: session["user_id"]).name %></small>
       <% else %>
           <small><%= link_to "Sign Up", '/signup' %></small>
           <small><%= link_to "Sign In", '/login' %></small>

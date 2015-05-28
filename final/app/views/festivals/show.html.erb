@@ -7,3 +7,15 @@
 <h4><a href=<%=@festival.website%>>Website</a></h4>
 
 <p><%= @festival.description %></p>
+
+<h3>Artists </h3>
+
+<div class="row">
+<% @festival.artists.each do |artist| %>
+  <% if artist.website.empty? %>
+  	<div class="col-md-4"><%=artist.name %></div>
+  <% else %>
+  	<div class="col-md-4"><a href=<%=artist.website%>><%=artist.name%></a></div>
+  <% end %>
+<% end %>
+</div>

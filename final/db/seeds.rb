@@ -89,15 +89,55 @@ The Ravinia neighborhood, once an incorporated village before annexation in 1899
 Artist.create([
 	{
 		name: 'Katy Perry',
-		age: 30,
-		birthplace: 'Santa Barbara, California',
-		website: 'katyperry.com'
+		website: 'http://katyperry.com'
+	},
+	{
+		name: 'Kid Cudi',
+		website: 'http://www.kidcudi.com/'
+	},
+	{
+		name: 'Beat Kitchen',
+		website: 'http://www.beatkitchen.com/'
+
+	},
+	{
+		name: 'Gold Coast Dogs',
+		website: 'http://www.goldcoastdogs.net/site/index.html'
+
+	},
+	{
+		name: 'Carla Bank',
+		website: 'http://www.carlabank.com'
+	},
+	{
+		name: 'Bremer Matthew',
+		website: 'http://www.colouroutofspaceworkshop.com'
 	}])
 
 Performance.create([
 	{
 		festival_id: Festival.find_by(name:'Lollapalooza').id,
 		artist_id: Artist.find_by(name:'Katy Perry').id
+	},
+	{
+		festival_id: Festival.find_by(name:'Lollapalooza').id,
+		artist_id: Artist.find_by(name:'Kid Cudi').id
+	},
+	{
+		festival_id: Festival.find_by(name:'Taste of Chicago').id,
+		artist_id: Artist.find_by(name:'Beat Kitchen').id
+	},
+	{
+		festival_id: Festival.find_by(name:'Taste of Chicago').id,
+		artist_id: Artist.find_by(name:'Gold Coast Dogs').id
+	},
+	{
+		festival_id: Festival.find_by(name:'Bucktown Arts Fest').id,
+		artist_id: Artist.find_by(name:'Carla Bank').id
+	},
+	{
+		festival_id: Festival.find_by(name:'Bucktown Arts Fest').id,
+		artist_id: Artist.find_by(name:'Bremer Matthew').id
 	}])
 
 puts "Seeded successfully."

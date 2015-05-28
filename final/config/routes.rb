@@ -52,6 +52,11 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/sessions' => 'sessions#create'
 
+  delete '/sessions' => 'sessions#destroy'
   get '/logout' => 'sessions#destroy'
+
+  #########################################################
+  # Only delete action for "cookies" resource for browsing history
+  delete '/cookies' => 'cookies#destroy'
 
 end

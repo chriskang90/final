@@ -1,7 +1,7 @@
 User
   name: string
   email: string
-  password: string
+  password_digest: string
 
 Festival
   name: string
@@ -21,8 +21,6 @@ Location
 
 Artist
   name: string
-  age: integer
-  birthplace: string
   website: string
 
 Genre

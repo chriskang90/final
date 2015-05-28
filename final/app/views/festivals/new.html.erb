@@ -8,41 +8,41 @@
 
 <%= form_tag "/festivals" do %>
 
-  <div>
+  <div class="form-group">
     <%= label_tag :name %>
     <%= text_field_tag :name, nil, placeholder: 'Example: Music Festival' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= label_tag :price %>
     <%= text_field_tag :price, nil, placeholder: 'Example: 100' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="website">Website:</label>
-    <input size="80" name="website" id="website">
+    <input size="80" name="website" id="website" type="url">
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="logo_url">Link to Logo:</label>
     <input size="80" name="logo_url" id="logo_url" type="url">
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="date_start">Start Date:</label>
     <input size="80" name="date_start" id="date_start" type="date">
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="date_end">End Date:</label>
     <input size="80" name="date_end" id="date_end" type="date">
   </div>
 
-  <div>
+  <div class="form-group">
     <textarea cols="80" rows="5" placeholder="Description" name="description"></textarea>
   </div>
 
- <div>
+  <div class="form-group">
     <label for="location_id">Location: </label>
     <select name="location_id">
       <% @locations.each do |location| %>
@@ -53,7 +53,7 @@
     </select>
   </div>
 
- <div>
+  <div class="form-group">
     <label for="genre_id">Genre: </label>
     <select name="genre_id">
       <% @genres.each do |genre| %>

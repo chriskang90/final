@@ -14,10 +14,8 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "artists", force: :cascade do |t|
-    t.string  "name"
-    t.integer "age"
-    t.string  "birthplace"
-    t.string  "website"
+    t.string "name"
+    t.string "website"
   end
 
   create_table "festivals", force: :cascade do |t|
@@ -57,7 +55,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
   end
 
 end

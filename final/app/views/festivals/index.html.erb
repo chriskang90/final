@@ -1,3 +1,12 @@
+<% if cookies["festival_ids"].present? %>
+  <h4>Your browsing history | <%= link_to "Clear Recent History", '/cookies', :method => 'delete' %></h4>
+
+  <% cookies["festival_ids"].split.each do |festival_id| %>
+    <%= image_tag Festival.find_by(id: festival_id).logo_url, width: "200" %>
+  <% end %>
+
+<% end %>
+
 <p><%= link_to "Add a New Festival", "/festivals/new" %></p>
 
 <table class="table table-striped">

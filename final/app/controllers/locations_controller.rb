@@ -1,5 +1,13 @@
 class LocationsController < ApplicationController
 
+  before_action :require_user, :except => [:index, :show]
+
+  def require_user
+    if session[:user_id].blank?
+      redirect_to '/login', notice: "Please login."
+    end
+  end
+
   def index
     @locations = Location.all.limit(100)
   end
