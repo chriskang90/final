@@ -2,12 +2,16 @@
   <h4>Your browsing history | <%= link_to "Clear Recent History", '/cookies', :method => 'delete' %></h4>
 
   <% cookies["festival_ids"].split.each do |festival_id| %>
-    <%= image_tag Festival.find_by(id: festival_id).logo_url, width: "200" %>
+    <% if Festival.find_by(id: festival_id).present? %>
+      <%= image_tag Festival.find_by(id: festival_id).logo_url, width: "200" %>
+    <% end %>
   <% end %>
 
 <% end %>
 
-<p><%= link_to "Add a New Festival", "/festivals/new" %></p>
+<% if session[:user_id].present? %>
+  <p><%= link_to "Add a New Festival", "/festivals/new" %></p>
+<% end %>
 
 <table class="table table-striped">
   <tr>
@@ -20,8 +24,20 @@
   <% @festivals.each do |festival| %>
     <tr>
       <td><%= link_to festival.name, festival_url(festival.id) %></td>
-      <td><%= festival.location.name %></td>
-      <td><%= festival.genre.name %></td>
+      <td>
+        <% if festival.location.present? %>
+          <%= festival.location.name %>
+        <% else %>
+          Not known
+        <% end %>
+      </td>
+      <td>
+        <% if festival.genre.present? %>
+          <%= festival.genre.name %>
+        <% else %>
+          Not known
+        <% end %>
+      </td>
       <td><%= link_to "Edit", "/festivals/#{festival.id}/edit" %></td>
       <td><%= link_to "Delete", "/festivals/#{festival.id}", :method => 'delete' %></td>
     </tr>

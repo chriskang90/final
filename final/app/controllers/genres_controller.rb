@@ -40,11 +40,22 @@ class GenresController < ApplicationController
   end
 
   def update
-  	genre = Genre.find_by(id: params["id"])
-  	genre.name = params[:name]
-  	genre.description = params[:description]
-  	genre.save
+  	@genre = Genre.find_by(id: params["id"])
+  	@genre.name = params[:name]
+  	@genre.description = params[:description]
+  	@genre.save
   	redirect_to genres_url
+
+    if @genre.save
+      redirect_to genres_url
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Genre.destroy(params[:id])
+    redirect_to genres_url
   end
 
 end

@@ -1,14 +1,18 @@
-<p><%= link_to "Add a New Location", "/locations/new" %></p>
+<% if session[:user_id].present? %>
+  <p><%= link_to "Add a New Location", new_locations_url %></p>
+<% end %>
 
 <table class="table table-striped">
   <tr>
     <th>Name</th>
+    <th></th>
     <th></th>
   </tr>
   <% @locations.each do |location| %>
     <tr>
       <td><%= link_to location.name, location_url(location.id) %></td>
       <td><%= link_to "Edit", "/locations/#{location.id}/edit" %></td>
+      <td><%= link_to "Delete", "/locations/#{location.id}", :method => 'delete' %></td>
     </tr>
   <% end %>
 

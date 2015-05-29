@@ -41,12 +41,15 @@ class LocationsController < ApplicationController
   end
 
   def update
-    location = Location.find_by(id: params["id"])
-    location.name = params[:name]
-    location.photo_url = params[:photo_url]
-    location.description = params[:description]
-    location.save
-    redirect_to locations_url
+    @location = Location.find_by(id: params["id"])
+    @location.name = params[:name]
+    @location.photo_url = params[:photo_url]
+    @location.description = params[:description]
+    if @location.save
+      redirect_to locations_url
+    else 
+      render 'edit'
+    end
   end
 
   def destroy

@@ -23,10 +23,11 @@ class FestivalsController < ApplicationController
       # Make this empty string if it does not exist
       cookies["festival_ids"] ||= ""
 
-      # Adds id with a space
-      cookies["festival_ids"] += "#{@festival.id} "
+      # Add id with a space if the festival id is not already included in the browsing history
+      if not cookies["festival_ids"].include?(@festival.id.to_s)
+        cookies["festival_ids"] += "#{@festival.id} "
+      end
     end
-
   end
 
   def new
@@ -71,22 +72,28 @@ class FestivalsController < ApplicationController
   end
 
   def update
-  	festival = Festival.find_by(id: params["id"])
-    festival.name = params[:name]
-    festival.price = params[:price]
-    festival.website = params[:website]
-    festival.date_start = params[:date_start]
-    festival.date_end = params[:date_end]
-    festival.description = params[:description]
-    festival.logo_url = params[:logo_url]
-    festival.location_id = params[:location_id]
-    festival.genre_id = params[:genre_id]
-    festival.save
-    redirect_to festivals_url
+  	@festival = Festival.find_by(id: params["id"])
+    @festival.name = params[:name]
+    @festival.price = params[:price]
+    @festival.website = params[:website]
+    @festival.date_start = params[:date_start]
+    @festival.date_end = params[:date_end]
+    @festival.description = params[:description]
+    @festival.logo_url = params[:logo_url]
+    @festival.location_id = params[:location_id]
+    @festival.genre_id = params[:genre_id]
+
+    if @festival.save
+      redirect_to festivals_url
+    else
+      @locations = Location.all.limit(100)
+      @genres = Genre.all.limit(100)
+      render 'edit'
+    end
   end
 
   def destroy
-  	Festival.delete(params[:id])
+  	Festival.destroy(params[:id])
     redirect_to festivals_url
   end
 

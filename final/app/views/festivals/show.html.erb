@@ -1,4 +1,4 @@
-<h2><%= @festival.name %> | <%= link_to @location.name, location_url(@location.id) %> | <%= link_to @genre.name, genre_url(@genre.id) %></h2>
+<h2><%= @festival.name %> | <% if @location.present? %> <%= link_to @location.name, location_url(@location.id) %> <% end %> | <% if @genre.present? %> <%= link_to @genre.name, genre_url(@genre.id) %><% end %> </h2>
 <%= image_tag @festival.logo_url %>
 
 <h4>Price: $<%=@festival.price%></h4>

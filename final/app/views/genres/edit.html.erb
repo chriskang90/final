@@ -1,3 +1,11 @@
+<% if not @genre.nil? and @genre.errors.any? %>
+  <ul class="errors">
+    <% @genre.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_tag "/genres/#{@genre.id}", :method => 'patch' do  %>
 
   <div>

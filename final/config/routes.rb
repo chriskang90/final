@@ -18,8 +18,7 @@ Rails.application.routes.draw do
   delete '/festivals/:id' => 'festivals#destroy'
 
   #########################################################
-  # Create, read, and update for "locations" resource. NO DELETE.
-  # We do NOT allow locations to be deleted because Festivals need locations.
+  # The "Golden 7" for accessing the "locations" resource
 
   get '/locations/new' => 'locations#new', as: 'new_locations'
   post '/locations' => 'locations#create', as: 'locations'
@@ -30,9 +29,10 @@ Rails.application.routes.draw do
   get '/locations/:id/edit' => 'locations#edit', as: 'edit_location'
   patch '/locations/:id' => 'locations#update'
 
+  delete '/locations/:id' => 'locations#destroy'
+
   #########################################################
-  # Create, read, and update for "genres" resource. NO DELETE.
-  # We do NOT allow genres to be deleted because Festivals need genres.
+  # The "Golden 7" for accessing the "genres" resource
 
   get '/genres/new' => 'genres#new', as: 'new_genres'
   post '/genres' => 'genres#create', as: 'genres'
@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 
   get '/genres/:id/edit' => 'genres#edit', as: 'edit_genre'
   patch '/genres/:id' => 'genres#update'
+
+  delete '/genres/:id' => 'genres#destroy'
 
   #########################################################
   # Sign Up, Sign In, and Sign Out

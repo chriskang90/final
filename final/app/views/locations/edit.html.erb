@@ -1,3 +1,11 @@
+<% if not @location.nil? and @location.errors.any? %>
+  <ul class="errors">
+    <% @location.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_tag "/locations/#{@location.id}", :method => 'patch' do  %>
 
   <div>
