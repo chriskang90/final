@@ -1,0 +1,41 @@
+<!-- References
+1. How to submit a POST request through link_to 
+   http://stackoverflow.com/questions/9305753/ruby-on-rails-link-to-with-put-method
+ -->
+
+<h2>
+	<% if @artist.website.present? %><%= link_to @artist.name, @artist.website %>
+	<% else %><%=@artist.name%>
+	<% end %>
+</h2>
+
+<table class="table table-striped">
+  <tr>
+    <th>Performing Festivals</th>
+    <th></th>
+  </tr>
+  <% if @performing_festivals.present? %>
+  <% @performing_festivals.each do |festival| %>
+    <tr>
+      <td><%= link_to festival.name, festival_url(festival.id) %></td>
+      <% performance = Performance.find_by(festival_id: festival.id, artist_id: @artist.id) %>
+      <td><%= link_to "Remove this artist", "/performances/#{performance.id}", :method => 'delete' %></td>
+    </tr>
+  <% end %>
+  <% end %>
+ </table>
+
+<table class="table table-striped">
+  <tr>
+    <th>Other Festivals</th>
+    <th></th>
+  </tr>
+  <% if @not_performing_festivals.present? %>
+  <% @not_performing_festivals.each do |festival| %>
+    <tr>
+      <td><%= link_to festival.name, festival_url(festival.id) %></td>
+      <td><%= link_to "Add this artist", performances_path(festival_id: festival.id, artist_id: @artist.id), method: :post %></td>
+    </tr>
+  <% end %>
+  <% end %>
+ </table>

@@ -1,0 +1,18 @@
+<% if session[:user_id].present? %>
+  <p><%= link_to "Add a New Artist", "/artists/new" %></p>
+<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @artists.each do |artist| %>
+    <tr>
+      <td><%= link_to artist.name, artist_url(artist.id) %></td>
+      <td><%= link_to "Delete", "/artists/#{artist.id}", :method => 'delete' %></td>
+    </tr>
+  <% end %>
+
+</table>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   root 'festivals#index'
 
   #########################################################
@@ -44,6 +43,15 @@ Rails.application.routes.draw do
   patch '/genres/:id' => 'genres#update'
 
   delete '/genres/:id' => 'genres#destroy'
+
+  #########################################################
+  # The "Golden 7" for accessing the "actors" resource except the edit and update
+  resources :artists, except: [:edit, :update]
+
+  #########################################################
+  # Only create and delete actions for performances
+  post '/performances' => 'performances#create', as: 'performances'
+  delete '/performances/:id' => 'performances#destroy'
 
   #########################################################
   # Sign Up, Sign In, and Sign Out

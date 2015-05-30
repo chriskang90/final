@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
+    t.string "address"
+    t.float  "latitude"
+    t.float  "longitude"
     t.string "photo_url"
     t.text   "description"
   end

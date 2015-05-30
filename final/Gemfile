@@ -42,9 +42,16 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+
 gem 'ez'
 gem 'quiet_assets'
+
+# For encrypted password hashes
 gem 'bcrypt'
+
+# For geolocation and google maps API
+gem 'geocoder'
+gem 'gmaps4rails'
 
 # Adding required gem file for windows users
 gem 'tzinfo-data', platforms: [:mingw, :mswin]

@@ -16,6 +16,9 @@ Festival
 
 Location
   name: string
+  address: string
+  latitude: float
+  longitude: float
   photo_url: string
   description: text
 

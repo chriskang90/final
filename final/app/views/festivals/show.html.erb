@@ -1,14 +1,24 @@
-<h2><%= @festival.name %> | <% if @location.present? %> <%= link_to @location.name, location_url(@location.id) %> <% end %> | <% if @genre.present? %> <%= link_to @genre.name, genre_url(@genre.id) %><% end %> </h2>
+<h2>
+	<% if @festival.website.present? %><%= link_to @festival.name, @festival.website %> |
+	<% else %><%=@festival.name%> |
+	<% end %>
+	<% if @location.present? %> <%= link_to @location.name, location_url(@location.id) %> <% end %> | 
+	<% if @genre.present? %> <%= link_to @genre.name+" Festival", genre_url(@genre.id) %><% end %> 
+</h2>
+
 <%= image_tag @festival.logo_url %>
 
 <h4>Price: $<%=@festival.price%></h4>
 <h4>Start: <%= @festival.date_start.strftime("%b %d %Y")%> </h4>
 <h4>End: <%= @festival.date_end.strftime("%b %d %Y")%> </h4>
-<h4><a href=<%=@festival.website%>>Website</a></h4>
 
 <p><%= @festival.description %></p>
 
 <h3>Artists </h3>
+
+<% if session[:user_id].present? %>
+  <p><%= link_to "Add more artists", "/artists" %></p>
+<% end %>
 
 <div class="row">
 <% @festival.artists.each do |artist| %>

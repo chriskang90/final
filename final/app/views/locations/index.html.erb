@@ -1,3 +1,8 @@
+<!-- References
+1. Forcing a full page load for showing a specific location in link_to to generate the google map properly
+http://stackoverflow.com/questions/13807686/gmaps4rails-and-turbolinks-not-loading-without-full-page-refresh
+ -->
+
 <% if session[:user_id].present? %>
   <p><%= link_to "Add a New Location", new_locations_url %></p>
 <% end %>
@@ -10,7 +15,7 @@
   </tr>
   <% @locations.each do |location| %>
     <tr>
-      <td><%= link_to location.name, location_url(location.id) %></td>
+      <td><%= link_to location.name, location_url(location.id), 'data-no-turbolink' => true %></td>
       <td><%= link_to "Edit", "/locations/#{location.id}/edit" %></td>
       <td><%= link_to "Delete", "/locations/#{location.id}", :method => 'delete' %></td>
     </tr>

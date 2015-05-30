@@ -19,6 +19,14 @@ class LocationsController < ApplicationController
   	if @location == nil
   		redirect_to locations_url, notice: "Location not found"
   	end
+
+    # Include controller code for building marks on Google Maps
+    @hash = Gmaps4rails.build_markers(@location) do |location, marker|
+#      logger.debug "Hey"
+      marker.lat location.latitude
+      marker.lng location.longitude
+    end
+
   end
 
   def new

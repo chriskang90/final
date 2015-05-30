@@ -21,17 +21,20 @@ Genre.create([
 Location.create([
 	{
 		name: 'Grant Park', 
+		address: '337 E Randolph St. Chicago, IL 60601',
 		photo_url: 'http://media-cdn.tripadvisor.com/media/photo-s/01/20/45/66/vista-with-lawn-fountain.jpg',
 		description: "Grant Park is a large urban park (319 acres or 1.29 km²) in the Loop community area of Chicago. Located in Chicago's central business district, the park's most notable features are Millennium Park, Buckingham Fountain, the Art Institute of Chicago and the Museum Campus. Originally known as Lake Park, and dating from the city's founding, it was renamed in 1901 to honor Ulysses S. Grant. The park's area has been expanded several times through land reclamation, and was the focus of several disputes in the late 1800s and early 1900s over open space use. It is bordered on the north by Randolph Street, on the south by Roosevelt Road and McFetridge Drive, on the west by Michigan Avenue and on the east by Lake Michigan. The park contains performance venues, gardens, art work, sporting, and harbor facilities. It hosts public gatherings, and several large annual events.
 The park is often called 'Chicago's front yard'. It is governed by the Chicago Park District. (Source: Wikipedia)"
 	},
 	{
 		name: 'Highland Park', 
+		address: 'Highland Park, IL',
 		photo_url: 'http://upload.wikimedia.org/wikipedia/commons/f/f3/20080706_Ravinia_Festival.JPG',
 		description: "Highland Park is an affluent suburban municipality in Lake County, Illinois, United States, about 26 miles (42 km) north of downtown Chicago. As of the 2010 census, the population was 29,763. Highland Park is one of several municipalities located on the North Shore of the Chicago Metropolitan Area. (Source: Wikipedia)"
 	},
 	{
 		name: 'Bucktown', 
+		address: 'Bucktown, Chicago, IL',
 		photo_url: 'http://chicago-househunter.com/wp-content/uploads/2013/10/Bucktown2.jpg',
 		description: "Bucktown is a neighborhood located in the east of the Logan Square community area in Chicago, directly north of Wicker Park, and northwest of the Loop. Bucktown gets its name from the large number of goats raised in the neighborhood during the 19th century when it was an integral part of the city's famed Polish Downtown. The original Polish term for the neighborhood was Kozie Prery (Goat Prairie). Its boundaries are Fullerton Ave. to the north, Western Avenue to the west, Bloomingdale or North Avenue to the south, and the Kennedy Expressway to the east. Bucktown's original boundaries were Fullerton Avenue, Damen Avenue (formerly Robey Street), Armitage Avenue and Western Avenue."
 	}])
