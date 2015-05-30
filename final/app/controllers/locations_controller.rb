@@ -22,7 +22,6 @@ class LocationsController < ApplicationController
 
     # Include controller code for building marks on Google Maps
     @hash = Gmaps4rails.build_markers(@location) do |location, marker|
-#      logger.debug "Hey"
       marker.lat location.latitude
       marker.lng location.longitude
     end
@@ -35,6 +34,7 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new
     @location.name = params[:name]
+    @location.address = params[:address]
     @location.photo_url = params[:photo_url]
     @location.description = params[:description]
     if @location.save
@@ -51,6 +51,7 @@ class LocationsController < ApplicationController
   def update
     @location = Location.find_by(id: params["id"])
     @location.name = params[:name]
+    @location.address = params[:address]
     @location.photo_url = params[:photo_url]
     @location.description = params[:description]
     if @location.save

@@ -26,14 +26,14 @@
       <td><%= link_to festival.name, festival_url(festival.id) %></td>
       <td>
         <% if festival.location.present? %>
-          <%= festival.location.name %>
+          <%= link_to festival.location.name, location_url(festival.location.id), 'data-no-turbolink' => true %>
         <% else %>
           Not known
         <% end %>
       </td>
       <td>
         <% if festival.genre.present? %>
-          <%= festival.genre.name %>
+          <%= link_to festival.genre.name, genre_url(festival.genre.id) %>
         <% else %>
           Not known
         <% end %>

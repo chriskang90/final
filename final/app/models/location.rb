@@ -9,7 +9,7 @@ class Location < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
 
   # Geocoding
-  geocoded_by :name
+  geocoded_by :address
   after_validation :geocode
 
 end
