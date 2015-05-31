@@ -46,7 +46,7 @@
     <label for="location_id">Location: </label>
     <select name="location_id" value="<%= @festival.location_id %>">
       <% @locations.each do |location| %>
-      <% if location.id = @festival.location_id %>
+      <% if location.id == @festival.location_id %>
         <option selected value="<%=location.id%>"><%=location.name%>
       <% else %>
         <option value="<%= location.id %>">
@@ -55,13 +55,13 @@
         </option>
       <% end %>
     </select>
-  </div>
+ </div>
 
  <div>
     <label for="genre_id">Genre: </label>
     <select name="genre_id" value="<%= @festival.genre_id%>">
       <% @genres.each do |genre| %>
-      <% if genre.id = @festival.genre_id %>
+      <% if genre.id == @festival.genre_id %>
         <option selected value="<%=genre.id%>"><%=genre.name%>
       <% else %>
         <option value="<%= genre.id %>">
@@ -70,7 +70,7 @@
         </option>
       <% end %>
     </select>
-  </div>
+ </div>
 
   <input type="submit" name="commit" value="Update Festival">
 
