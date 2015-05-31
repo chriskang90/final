@@ -52,6 +52,7 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+end
 
 gem 'ez'
 gem 'quiet_assets'
@@ -65,6 +66,3 @@ gem 'gmaps4rails'
 
 # Adding required gem file for windows users
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
-
-end
-
