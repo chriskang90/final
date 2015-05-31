@@ -20,7 +20,7 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-# Production should run postgresql for heroku
+# Production should run postgresql for heroku instead of sqlite
 production:
   adapter: postgresql
   encoding: unicode
