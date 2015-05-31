@@ -1,9 +1,17 @@
 Final project for MPCS 52553 Web Development
 
+*** README ***
+Please run: bundle install --without production to set up the dependencies for development testing!
+
 Primary References
 1. Lecture code by Professor Cohen on GitHub
 2. Google Maps for Rails Guide: https://github.com/apneadiving/Google-Maps-for-Rails
 3. Stack Overflow (see individual controllers and views for specific references used)
+4. Heroku and Rails Guide for deploying Rails app on Heroku
+https://devcenter.heroku.com/articles/getting-started-with-rails4
+
+--README--
+Please run bundle install 
 
 --User--
 A signed in user has access to create and edit festivals, locations, genres, and artists. Note that an anonymous user will not be able to see these options nor will they have the capability.
