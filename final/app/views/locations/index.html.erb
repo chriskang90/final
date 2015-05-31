@@ -7,6 +7,8 @@ http://stackoverflow.com/questions/13807686/gmaps4rails-and-turbolinks-not-loadi
   <p><%= link_to "Add a New Location", new_locations_url %></p>
 <% end %>
 
+<%= paginate(@locations) %>
+
 <table class="table table-striped">
   <tr>
     <th>Name</th>

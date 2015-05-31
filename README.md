@@ -1,7 +1,7 @@
 Final project for MPCS 52553 Web Development
 
 *** READ ME HERE ***
-Please run: bundle install --without production to set up the dependencies for development testing!
+Please run: bundle install --without production to set up the dependencies for development testing.
 To access this app on a public URL, please go to: https://safe-refuge-1064.herokuapp.com/
 
 --Feature Choice--
@@ -9,6 +9,9 @@ The primary extra feature choice selected for this app was the deployment to a p
 I deployed this app on heroku. Please go to: https://safe-refuge-1064.herokuapp.com/
 
 I also used Bootstrap just a little for basic CSS styling of the website.
+
+--Best Practices--
+I decided to use pagination just in case the number of entries grew very large. Because pagination .per() internally calls .limit, there were a couple of places where .limit was replaced by .page().per(10).
 
 --Primary References--
 1. Lecture code by Professor Cohen on GitHub

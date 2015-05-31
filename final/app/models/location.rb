@@ -7,6 +7,7 @@ class Location < ActiveRecord::Base
   has_many :festivals, :dependent => :nullify
 
   validates :name, :presence => true, :uniqueness => true
+  validates :address, :presence => true
 
   # Geocoding
   geocoded_by :address

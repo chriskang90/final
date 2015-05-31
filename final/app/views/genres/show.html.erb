@@ -2,6 +2,8 @@
 
 <p><%=@genre.description%></p>
 
+<%= paginate(@festivals) %>
+
 <table class="table table-striped">
   <tr>
     <th>Festivals</th>
@@ -11,3 +13,4 @@
       <td><%= link_to festival.name, festival_url(festival.id) %></td>
     </tr>
   <% end %>
+</table>

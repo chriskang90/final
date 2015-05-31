@@ -9,16 +9,19 @@ class LocationsController < ApplicationController
   end
 
   def index
-    @locations = Location.all.limit(100)
+    # per internally calls .limit
+    @locations = Location.page(params[:page]).per(10)
   end
 
   def show
     @location = Location.find_by(id: params["id"])
-    @festivals = Festival.where(location_id: params["id"])
 
   	if @location == nil
   		redirect_to locations_url, notice: "Location not found"
   	end
+
+    # per internally calls .limit
+    @festivals = Festival.where(location_id: params["id"]).page(params[:page]).per(10)
 
     # Include controller code for building marks on Google Maps
     @hash = Gmaps4rails.build_markers(@location) do |location, marker|

@@ -57,6 +57,9 @@ end
 gem 'ez'
 gem 'quiet_assets'
 
+# For pagination
+gem 'kaminari'
+
 # For encrypted password hashes
 gem 'bcrypt'
 

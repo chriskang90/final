@@ -2,6 +2,8 @@
   <p><%= link_to "Add a New Genre", new_genres_url %></p>
 <% end %>
 
+<%= paginate(@genres) %>
+
 <table class="table table-striped">
   <tr>
     <th>Name</th>

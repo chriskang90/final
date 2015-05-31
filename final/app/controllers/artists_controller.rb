@@ -9,17 +9,18 @@ class ArtistsController < ApplicationController
   end
 
   def index
-    @artists = Artist.all.limit(100)
+    # per internally calls .limit
+    @artists = Artist.page(params[:page]).per(10)
   end
 
   def show
     @artist = Artist.find_by(id: params["id"])
 
     # Festivals that artist belongs to: @artist.festivals
-    @performing_festivals = @artist.festivals
+    @performing_festivals = @artist.festivals.page(params[:page]).per(10)
 
     # Festivals that artist is NOT performing in
-    @not_performing_festivals = Festival.where.not(id: @artist.festival_ids)
+    @not_performing_festivals = Festival.where.not(id: @artist.festival_ids).page(params[:page2]).per(10)
 
   	if @artist == nil
   		redirect_to artists_url, notice: "Artist not found"

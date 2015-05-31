@@ -9,7 +9,8 @@ class FestivalsController < ApplicationController
   end
 
   def index
-    @festivals = Festival.all.limit(100)
+    # per internally calls .limit
+    @festivals = Festival.page(params[:page]).per(10)
   end
 
   def show

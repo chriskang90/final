@@ -2,15 +2,21 @@
 	<% if @festival.website.present? %><%= link_to @festival.name, @festival.website %> |
 	<% else %><%=@festival.name%> |
 	<% end %>
-	<% if @location.present? %> <%= link_to @location.name, location_url(@location.id) %> <% end %> | 
+	<% if @location.present? %> <%= link_to @location.name, location_url(@location.id),'data-no-turbolink' => true %> <% end %> | 
 	<% if @genre.present? %> <%= link_to @genre.name+" Festival", genre_url(@genre.id) %><% end %> 
 </h2>
 
 <%= image_tag @festival.logo_url %>
 
 <h4>Price: $<%=@festival.price%></h4>
+
+<% if @festival.date_start.present? %>
 <h4>Start: <%= @festival.date_start.strftime("%b %d %Y")%> </h4>
+<% end %>
+
+<% if @festival.date_end.present? %>
 <h4>End: <%= @festival.date_end.strftime("%b %d %Y")%> </h4>
+<% end %>
 
 <p><%= @festival.description %></p>
 

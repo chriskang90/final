@@ -1,6 +1,8 @@
 <!-- References
 1. How to submit a POST request through link_to 
    http://stackoverflow.com/questions/9305753/ruby-on-rails-link-to-with-put-method
+2. How to get multiple pagination on a single page
+   http://stackoverflow.com/questions/9016943/multiple-pagination-with-kaminari-via-ajax
  -->
 
 <h2>
@@ -8,6 +10,8 @@
 	<% else %><%=@artist.name%>
 	<% end %>
 </h2>
+
+<%= paginate(@performing_festivals) %>
 
 <table class="table table-striped">
   <tr>
@@ -24,6 +28,8 @@
   <% end %>
   <% end %>
  </table>
+
+<%= paginate @not_performing_festivals, param_name: 'page2' %>
 
 <table class="table table-striped">
   <tr>

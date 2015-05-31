@@ -13,6 +13,8 @@
   <p><%= link_to "Add a New Festival", "/festivals/new" %></p>
 <% end %>
 
+<%= paginate @festivals %>
+
 <table class="table table-striped">
   <tr>
     <th>Name</th>
