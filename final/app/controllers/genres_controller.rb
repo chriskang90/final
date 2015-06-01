@@ -47,7 +47,6 @@ class GenresController < ApplicationController
   	@genre = Genre.find_by(id: params["id"])
   	@genre.name = params[:name]
   	@genre.description = params[:description]
-  	@genre.save
 
     if @genre.save
       redirect_to genres_url
